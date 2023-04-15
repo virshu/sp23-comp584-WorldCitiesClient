@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { environment } from '../environment/environment';
 
 @Component({
   selector: 'app-fetch-data',
@@ -8,10 +9,9 @@ import { Component } from '@angular/core';
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];
-  baseUrl = "https://localhost:7104/";
 
   constructor(http: HttpClient) {
-            http.get<WeatherForecast[]>(this.baseUrl + 'weatherforecast').subscribe(result => {
+            http.get<WeatherForecast[]>(environment.baseUrl + 'weatherforecast').subscribe(result => {
       this.forecasts = result;
     }, error => console.error(error));
   }
