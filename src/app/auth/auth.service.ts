@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LoginRequest } from './login-request';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, tap } from 'rxjs';
 import { LoginResult } from './login-result';
 import { environment } from '../environment/environment';
 
@@ -36,10 +36,17 @@ export class AuthService {
 
   login(item: LoginRequest): Observable<LoginResult> {
       var url = environment.baseUrl + 'api/Account';
-      return this.http.post<LoginResult>(url, item);
+      return this.http.post<LoginResult>(url, item)
+      .pipe(tap((loginResult: LoginResult) => {
+        if (loginResult.success && loginResult.token) {
+          localStorage.setItem(this.tokenKey, loginResult.token);
+          this.setAuthStatus(true);
+        }
+      }));
   }
 
   logout() {
     localStorage.removeItem(this.tokenKey);
+    this.setAuthStatus(false);
   }
 }

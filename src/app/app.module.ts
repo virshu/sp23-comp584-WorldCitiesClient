@@ -10,6 +10,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from "@angular/material/button";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
 import { MatIconModule } from "@angular/material/icon";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
@@ -35,6 +36,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     ReactiveFormsModule,
     HttpClientModule,
     MatFormFieldModule,
+    MatInputModule,
     MatButtonModule,
     MatIconModule,
     MatToolbarModule
