@@ -18,6 +18,8 @@ import { CountriesComponent } from './countries/countries.component';
 import { LoginComponent } from './auth/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { CountryPopulationComponent } from './countries/country-population.component';
+import { CountryEditComponent } from './countries/country-edit.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     FetchDataComponent,
     NavMenuComponent,
     CountriesComponent,
-    LoginComponent
+    LoginComponent,
+    CountryPopulationComponent,
+    CountryEditComponent
   ],
   imports: [
     BrowserModule,
